@@ -20,7 +20,13 @@ MainWindow::MainWindow(QWidget *parent) :
     timer->setInterval(30);
     timer->start();
 
+    imgprocQt = new ImgProcQt(this);
+
     connect(timer, SIGNAL(timeout()), this, SLOT(VideoUpdate()));
+}
+void MainWindow::resizeEvent(QResizeEvent *resizeEvent)
+{
+    QMainWindow::resizeEvent(resizeEvent);
 }
 
 void MainWindow::VideoUpdate()
@@ -29,7 +35,12 @@ void MainWindow::VideoUpdate()
     {
         cv::Mat capImg;
         cap->retrieve(capImg);
-
+        if(ui->ModeNormal->isChecked())
+            ;
+        else if(ui->ModeGray->isChecked())
+            imgprocQt->cvCvtRGB2GRAY(capImg);
+        else if(ui->ModeCanny->isChecked())
+            imgprocQt->cvCanny(capImg,100,200);//FIX
         PreviewUpdate(capImg);
     }
 }
