@@ -48,8 +48,5 @@ void ImgProcQt::detectCard(cv::Mat& bgrImg){
     // ラベリング時点で1つしか輪郭が取れないことが保障されている。はず。
     cv::drawContours(bgrImg, contours, 0, CV_RGB(0,255,0), 1);
 
-//    cv::vector<cv::Point2i> poly;
-//    cv::approxPolyDP(contours[0], poly, 10, true);
-
-//    cv::drawContours(bgrImg, poly, 0, CV_RGB(255,0,0), 3);
-}
+    // 輪郭上の4点でよければ中央から左上右上左下右下で一番遠い点を採用すればいい。
+    //　輪郭線の外側に囲む線が必要ならもうひとつ考える必要ある。
