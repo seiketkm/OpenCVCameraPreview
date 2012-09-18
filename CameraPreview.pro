@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     imgprocqt.cpp
 
 HEADERS  += mainwindow.h \
-    imgprocqt.h
+    imgprocqt.h \
+    Labeling.h
 
 FORMS    += mainwindow.ui
 

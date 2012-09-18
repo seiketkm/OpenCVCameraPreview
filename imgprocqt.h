@@ -10,6 +10,7 @@ public:
     explicit ImgProcQt(QObject *parent = 0);
     void cvCvtRGB2GRAY(cv::Mat&);
     void cvCanny(cv::Mat&, double th1, double th2);
+    void detectCard(cv::Mat& bgrImg);
 signals:
     
 public slots:

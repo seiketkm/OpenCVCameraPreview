@@ -36,7 +36,7 @@ void MainWindow::VideoUpdate()
         cv::Mat capImg;
         cap->retrieve(capImg);
         if(ui->ModeNormal->isChecked())
-            ;
+            imgprocQt->detectCard(capImg);
         else if(ui->ModeGray->isChecked())
             imgprocQt->cvCvtRGB2GRAY(capImg);
         else if(ui->ModeCanny->isChecked())
